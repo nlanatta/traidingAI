@@ -1,0 +1,13 @@
+# Ignore freqtrade directory (pulled from upstream)
+freqtradebot/freqtrade/
+
+# IDE
+.idea/
+.vscode/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.env
