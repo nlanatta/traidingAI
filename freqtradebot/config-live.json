@@ -57,7 +57,7 @@
 
   "telegram": {
     "enabled": true,
-    "token": "${TELEGRAM_TOKEN}",
+    "token": "${TELEGRAM_TOKEN_LIVE}",
     "chat_id": "${TELEGRAM_CHAT_ID}"
   },
 
