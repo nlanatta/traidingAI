@@ -15,9 +15,11 @@ __pycache__/
 .env
 .env.*
 !.env.example
+!.env.*.example
 freqtradebot/.env
 freqtradebot/.env.*
 !freqtradebot/.env.example
+!freqtradebot/.env.*.example
 
 # Freqtrade data (generated)
 freqtradebot/user_data/

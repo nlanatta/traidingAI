@@ -1,61 +1,61 @@
 ---
 services:
-  # Original SampleStrategy (baseline)
-  freqtrade:
-    image: freqtradeorg/freqtrade:stable
-    restart: unless-stopped
-    container_name: freqtrade
-    env_file:
-      - .env
-    volumes:
-      - "./freqtrade/user_data:/freqtrade/user_data"
-      - "./strategies:/freqtrade/strategies:ro"
-      - "./config-sample.json:/freqtrade/config.json:ro"
-    ports:
-      - "127.0.0.1:8080:8080"
-    command: >
-      trade
-      --logfile /freqtrade/user_data/logs/freqtrade.log
-      --db-url sqlite:////freqtrade/user_data/tradesv3.sqlite
-      --config /freqtrade/config.json
-      --strategy SampleStrategy
-
-  # CustomSampleStrategy with ADX filter (test)
-  freqtrade-custom:
-    image: freqtradeorg/freqtrade:stable
-    restart: unless-stopped
-    container_name: freqtrade-custom
-    env_file:
-      - .env
-    volumes:
-      - "./freqtrade/user_data:/freqtrade/user_data"
-      - "./strategies:/freqtrade/strategies:ro"
-      - "./config-custom.json:/freqtrade/config.json:ro"
-    ports:
-      - "127.0.0.1:8081:8080"
-    command: >
-      trade
-      --logfile /freqtrade/user_data/logs/freqtrade-custom.log
-      --db-url sqlite:////freqtrade/user_data/tradesv3-custom.sqlite
-      --config /freqtrade/config.json
-      --strategy CustomSampleStrategy
-
-  # LIVE TRADING - REAL MONEY (commented out by default for safety)
-  # freqtrade-live:
+  # Original SampleStrategy (baseline) - COMMENTED OUT FOR LIVE TESTING
+  # freqtrade:
   #   image: freqtradeorg/freqtrade:stable
   #   restart: unless-stopped
-  #   container_name: freqtrade-live
+  #   container_name: freqtrade
   #   env_file:
-  #     - .env
+  #     - .env.sample
   #   volumes:
   #     - "./freqtrade/user_data:/freqtrade/user_data"
   #     - "./strategies:/freqtrade/strategies:ro"
-  #     - "./config-live.json:/freqtrade/config.json:ro"
+  #     - "./config-sample.json:/freqtrade/config.json:ro"
   #   ports:
-  #     - "127.0.0.1:8082:8080"
+  #     - "127.0.0.1:8080:8080"
   #   command: >
   #     trade
-  #     --logfile /freqtrade/user_data/logs/freqtrade-live.log
-  #     --db-url sqlite:////freqtrade/user_data/tradesv3-live.sqlite
+  #     --logfile /freqtrade/user_data/logs/freqtrade.log
+  #     --db-url sqlite:////freqtrade/user_data/tradesv3.sqlite
+  #     --config /freqtrade/config.json
+  #     --strategy SampleStrategy
+
+  # CustomSampleStrategy with ADX filter (test) - COMMENTED OUT FOR LIVE TESTING
+  # freqtrade-custom:
+  #   image: freqtradeorg/freqtrade:stable
+  #   restart: unless-stopped
+  #   container_name: freqtrade-custom
+  #   env_file:
+  #     - .env.custom
+  #   volumes:
+  #     - "./freqtrade/user_data:/freqtrade/user_data"
+  #     - "./strategies:/freqtrade/strategies:ro"
+  #     - "./config-custom.json:/freqtrade/config.json:ro"
+  #   ports:
+  #     - "127.0.0.1:8081:8080"
+  #   command: >
+  #     trade
+  #     --logfile /freqtrade/user_data/logs/freqtrade-custom.log
+  #     --db-url sqlite:////freqtrade/user_data/tradesv3-custom.sqlite
   #     --config /freqtrade/config.json
   #     --strategy CustomSampleStrategy
+
+  # LIVE TRADING TESTING - dry_run mode with real API keys
+  freqtrade-live:
+    image: freqtradeorg/freqtrade:stable
+    restart: unless-stopped
+    container_name: freqtrade-live
+    env_file:
+      - .env.live
+    volumes:
+      - "./freqtrade/user_data:/freqtrade/user_data"
+      - "./strategies:/freqtrade/strategies:ro"
+      - "./config-live.json:/freqtrade/config.json:ro"
+    ports:
+      - "127.0.0.1:8082:8080"
+    command: >
+      trade
+      --logfile /freqtrade/user_data/logs/freqtrade-live.log
+      --db-url sqlite:////freqtrade/user_data/tradesv3-live.sqlite
+      --config /freqtrade/config.json
+      --strategy CustomSampleStrategy
