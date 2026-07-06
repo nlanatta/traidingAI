@@ -5,6 +5,8 @@ services:
     image: freqtradeorg/freqtrade:stable
     restart: unless-stopped
     container_name: freqtrade
+    env_file:
+      - .env
     volumes:
       - "./freqtrade/user_data:/freqtrade/user_data"
       - "./strategies:/freqtrade/strategies:ro"
@@ -23,6 +25,8 @@ services:
     image: freqtradeorg/freqtrade:stable
     restart: unless-stopped
     container_name: freqtrade-custom
+    env_file:
+      - .env
     volumes:
       - "./freqtrade/user_data:/freqtrade/user_data"
       - "./strategies:/freqtrade/strategies:ro"
@@ -41,6 +45,8 @@ services:
   #   image: freqtradeorg/freqtrade:stable
   #   restart: unless-stopped
   #   container_name: freqtrade-live
+  #   env_file:
+  #     - .env
   #   volumes:
   #     - "./freqtrade/user_data:/freqtrade/user_data"
   #     - "./strategies:/freqtrade/strategies:ro"

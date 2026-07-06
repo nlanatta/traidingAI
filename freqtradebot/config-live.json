@@ -36,8 +36,8 @@
 
   "exchange": {
     "name": "bingx",
-    "key": "YOUR_BINGX_API_KEY",
-    "secret": "YOUR_BINGX_API_SECRET",
+    "key": "${BINGX_API_KEY}",
+    "secret": "${BINGX_API_SECRET}",
     "ccxt_config": {},
     "ccxt_async_config": {},
     "pair_whitelist": [
@@ -57,8 +57,8 @@
 
   "telegram": {
     "enabled": true,
-    "token": "YOUR_TELEGRAM_BOT_TOKEN",
-    "chat_id": "YOUR_CHAT_ID"
+    "token": "${TELEGRAM_TOKEN}",
+    "chat_id": "${TELEGRAM_CHAT_ID}"
   },
 
   "api_server": {
