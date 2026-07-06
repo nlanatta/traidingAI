@@ -11,3 +11,12 @@ __pycache__/
 *.pyo
 *.egg-info/
 .env
+
+# Freqtrade data (generated)
+freqtradebot/user_data/
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+
+# Logs
+*.log
