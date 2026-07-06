@@ -4,7 +4,10 @@
   "stake_amount": 10,
   "tradable_balance_ratio": 0.99,
   "fiat_display_currency": "USD",
-  "dry_run": false,
+
+  "_comment_dry_run": "IMPORTANT: Keep dry_run=true to test with real API keys safely. Only change to false when ready for REAL TRADING with REAL MONEY",
+  "dry_run": true,
+
   "cancel_open_orders_on_exit": false,
 
   "user_data_dir": "/freqtrade/user_data",
