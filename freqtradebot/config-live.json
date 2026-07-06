@@ -57,9 +57,11 @@
     "enabled": false
   },
 
-  "_comment_telegram": "Token and chat_id loaded from FREQTRADE__TELEGRAM__TOKEN and FREQTRADE__TELEGRAM__CHAT_ID env vars",
+  "_comment_telegram": "Placeholders below are overridden by FREQTRADE__TELEGRAM__TOKEN and FREQTRADE__TELEGRAM__CHAT_ID env vars",
   "telegram": {
-    "enabled": true
+    "enabled": true,
+    "token": "placeholder_will_be_overridden_by_env",
+    "chat_id": "placeholder_will_be_overridden_by_env"
   },
 
   "api_server": {
