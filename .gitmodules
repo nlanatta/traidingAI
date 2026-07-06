@@ -1,0 +1,4 @@
+[submodule "freqtradebot/freqtrade"]
+	path = freqtradebot/freqtrade
+	url = git@github.com:nlanatta/freqtrade.git
+	branch = develop
