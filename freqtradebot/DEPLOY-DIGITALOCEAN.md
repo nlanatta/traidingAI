@@ -236,7 +236,7 @@ systemctl status freqtrade
 3. **Update config locally:**
    ```bash
    # Edit on your local machine
-   nano /Users/nlanatta/Documents/Projects/Personal/traidingAI/freqtradebot/freqtrade/user_data/config-poc.json
+   nano /Users/nlanatta/Documents/Projects/Personal/traidingAI/freqtradebot/config-sample.json
    ```
 
    Change telegram section:

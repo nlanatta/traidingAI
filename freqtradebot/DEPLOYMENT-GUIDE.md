@@ -28,7 +28,7 @@
 ssh -i ~/.ssh/id_do root@192.81.218.58
 
 # Check both strategies are running
-cd ~/freqtradebot/freqtrade
+cd ~/freqtradebot
 docker compose ps
 
 # View logs
@@ -51,7 +51,7 @@ rsync -avz -e "ssh -i ~/.ssh/id_do" \
 
 # SSH in and restart
 ssh -i ~/.ssh/id_do root@192.81.218.58
-cd ~/freqtradebot/freqtrade
+cd ~/freqtradebot
 docker compose restart
 ```
 
@@ -127,11 +127,12 @@ rsync -avz -e "ssh -i ~/.ssh/id_do" \
 # SSH into droplet
 ssh -i ~/.ssh/id_do root@192.81.218.58
 
-# Go to freqtrade directory
-cd ~/freqtradebot/freqtrade
+# Clone freqtrade (not tracked in git)
+cd ~/freqtradebot
+git clone https://github.com/freqtrade/freqtrade.git
 
 # Verify paper trading config
-cat user_data/config.json | grep dry_run
+cat config-sample.json | grep dry_run
 # Should show: "dry_run": true
 ```
 
@@ -139,15 +140,18 @@ cat user_data/config.json | grep dry_run
 
 ```bash
 # On droplet
-cd ~/freqtradebot/freqtrade
+cd ~/freqtradebot
+
+# Create user_data directory in freqtrade
+mkdir -p freqtrade/user_data/logs
 
 # Create log files
-touch user_data/logs/freqtrade.log user_data/logs/freqtrade-custom.log
-chmod 666 user_data/logs/*.log
+touch freqtrade/user_data/logs/freqtrade.log freqtrade/user_data/logs/freqtrade-custom.log
+chmod 666 freqtrade/user_data/logs/*.log
 
 # Fix permissions for Docker (runs as user 1000)
-chown -R 1000:1000 user_data/
-chmod -R 755 user_data/
+chown -R 1000:1000 freqtrade/user_data/
+chmod -R 755 freqtrade/user_data/
 ```
 
 ### Step 5: Configure Telegram (Optional)
@@ -167,7 +171,7 @@ chmod -R 755 user_data/
 
 3. **Update config on droplet:**
    ```bash
-   nano ~/freqtradebot/freqtrade/user_data/config.json
+   nano ~/freqtradebot/config-sample.json
    ```
    
    Update telegram section:
@@ -197,7 +201,7 @@ chmod -R 755 user_data/
 
 ```bash
 # On droplet
-cd ~/freqtradebot/freqtrade
+cd ~/freqtradebot
 
 # Start both strategies
 docker compose up -d
@@ -302,7 +306,7 @@ user_data/
 ```bash
 # SSH into droplet
 ssh -i ~/.ssh/id_do root@192.81.218.58
-cd ~/freqtradebot/freqtrade
+cd ~/freqtradebot
 
 # Check containers are running
 docker compose ps
@@ -599,7 +603,7 @@ free -h
 watch -n 1 free -h
 
 # Download databases for offline analysis
-scp root@192.81.218.58:~/freqtradebot/freqtrade/user_data/tradesv3*.sqlite ~/Downloads/
+scp -i ~/.ssh/id_do root@192.81.218.58:~/freqtradebot/freqtrade/user_data/tradesv3*.sqlite ~/Downloads/
 
 # List available trading pairs
 docker compose run --rm freqtrade list-pairs --exchange kraken --quote USDT
@@ -607,9 +611,10 @@ docker compose run --rm freqtrade list-pairs --exchange kraken --quote USDT
 # List available strategies
 docker compose run --rm freqtrade list-strategies
 
-# View strategy file
-cat user_data/strategies/SampleStrategy.py
-cat user_data/strategies/CustomSampleStrategy.py
+# View strategy files (from parent directory)
+cd ~/freqtradebot
+cat strategies/SampleStrategy.py
+cat strategies/CustomSampleStrategy.py
 ```
 
 ### SSH & Rsync
