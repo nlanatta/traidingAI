@@ -1,0 +1,24 @@
+{
+  "timestamp": "2026-07-08T17:40:01.987317",
+  "btc_price": 62373.06,
+  "price_24h": {
+    "high": 64232.0,
+    "low": 61544.56,
+    "change_percent": -2.782,
+    "volume": 19490.79895,
+    "volume_quote": 1219829959.8009653
+  },
+  "fear_greed_index": 20,
+  "funding_rate": 7.171e-05,
+  "technical_indicators": {
+    "rsi_14": 43.13819309593322,
+    "adx_14": 63.36772551129884,
+    "ema_50": 62842.785635649634,
+    "ema_200": 62100.54149540702,
+    "bb_upper": 63690.90453233797,
+    "bb_lower": 61392.90646766202,
+    "volume_ma_20": 826.9141255000001,
+    "volume_spike": false
+  },
+  "regime": "bull_trending"
+}

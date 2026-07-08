@@ -1,0 +1,15 @@
+AI TRADING SYSTEM - DECISION LOG
+═══════════════════════════════════════════════════════════════════════════════
+
+This file logs all AI trading decisions with full reasoning.
+
+Format:
+  - Timestamp
+  - Market conditions
+  - Strategy chosen
+  - Confidence level
+  - Reasoning
+  - Duration
+
+═══════════════════════════════════════════════════════════════════════════════
+

@@ -1,0 +1,35 @@
+{
+  "timestamp": "2026-07-08T17:18:14.867542",
+  "market_data": {
+    "timestamp": "2026-07-08T17:18:14.867542",
+    "btc_price": 62070.01,
+    "price_24h": {
+      "high": 64232.0,
+      "low": 61544.56,
+      "change_percent": -2.87,
+      "volume": 19378.93826,
+      "volume_quote": 1213086092.0285146
+    },
+    "fear_greed_index": 20,
+    "funding_rate": 7.171e-05,
+    "technical_indicators": {
+      "rsi_14": 36.84926537275526,
+      "adx_14": 64.28363986435986,
+      "ema_50": 62830.90092976728,
+      "ema_200": 62097.525973018965,
+      "bb_upper": 63692.99143167824,
+      "bb_lower": 61360.51356832174,
+      "volume_ma_20": 815.1954035,
+      "volume_spike": false
+    },
+    "regime": "bull_trending"
+  },
+  "decision": {
+    "strategy": "ImprovedAdaptiveV3",
+    "confidence": 5,
+    "reasoning": "Error occurred, defaulting to safe strategy: Could not parse JSON from response: I've analyzed the current market conditions and recommended **ImprovedAdaptiveV3** as the safest choice given the conflicting signals:\n\n**Key factors:**\n- Extreme fear (F&G=20) typically signals buyin",
+    "duration": "4h",
+    "max_drawdown_acceptable": "10%",
+    "alternative": "ImprovedAdaptiveV3"
+  }
+}

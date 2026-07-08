@@ -1,25 +1,21 @@
 {
-  "max_open_trades": 6,
+  "max_open_trades": 10,
   "stake_currency": "USDT",
-  "stake_amount": 10,
+  "stake_amount": 20,
   "tradable_balance_ratio": 0.99,
   "fiat_display_currency": "USD",
-
   "_comment_dry_run": "IMPORTANT: Keep dry_run=true to test with real API keys safely. Only change to false when ready for REAL TRADING with REAL MONEY",
+  "_comment_optimization": "2026-07-08: Increased stake_amount 10\u219220 and max_open_trades 6\u219210 to deploy 20% capital ($200) vs 6% ($60). Expected: ~35 trades/3mo, ~$8.40 profit/3mo (3.4% annual return). Target: 85%+ win rate.",
   "dry_run": true,
-
   "cancel_open_orders_on_exit": false,
-
   "user_data_dir": "/freqtrade/user_data",
   "strategy_path": "/freqtrade/strategies",
-
   "unfilledtimeout": {
     "entry": 10,
     "exit": 10,
     "exit_timeout_count": 0,
     "unit": "minutes"
   },
-
   "entry_pricing": {
     "price_side": "same",
     "use_order_book": true,
@@ -30,13 +26,11 @@
       "bids_to_ask_delta": 1
     }
   },
-
-  "exit_pricing":{
+  "exit_pricing": {
     "price_side": "same",
     "use_order_book": true,
     "order_book_top": 1
   },
-
   "_comment_exchange": "API keys loaded from FREQTRADE__EXCHANGE__KEY and FREQTRADE__EXCHANGE__SECRET env vars",
   "exchange": {
     "name": "bingx",
@@ -48,26 +42,44 @@
       "SOL/USDT",
       "ADA/USDT",
       "DOT/USDT",
-      "LINK/USDT"
+      "LINK/USDT",
+      "AVAX/USDT",
+      "POL/USDT",
+      "UNI/USDT",
+      "ATOM/USDT",
+      "XRP/USDT",
+      "LTC/USDT",
+      "ALGO/USDT",
+      "FIL/USDT",
+      "NEAR/USDT",
+      "APT/USDT",
+      "ARB/USDT",
+      "OP/USDT",
+      "SAND/USDT",
+      "MANA/USDT",
+      "DOGE/USDT",
+      "TRX/USDT",
+      "ETC/USDT",
+      "ICP/USDT",
+      "LDO/USDT",
+      "AAVE/USDT"
     ],
     "pair_blacklist": []
   },
-
   "pairlists": [
-    {"method": "StaticPairList"}
+    {
+      "method": "StaticPairList"
+    }
   ],
-
   "edge": {
     "enabled": false
   },
-
   "_comment_telegram": "Placeholders below are overridden by FREQTRADE__TELEGRAM__TOKEN and FREQTRADE__TELEGRAM__CHAT_ID env vars",
   "telegram": {
     "enabled": true,
     "token": "placeholder_will_be_overridden_by_env",
     "chat_id": "placeholder_will_be_overridden_by_env"
   },
-
   "api_server": {
     "enabled": false,
     "listen_ip_address": "127.0.0.1",
@@ -76,11 +88,11 @@
     "password": "placeholder-password",
     "jwt_secret_key": "somethingRandomSomethingRandom123"
   },
-
   "bot_name": "freqtrade_live",
   "initial_state": "running",
   "force_entry_enable": false,
   "internals": {
     "process_throttle_secs": 5
-  }
+  },
+  "strategy": "ImprovedAdaptiveV3"
 }
